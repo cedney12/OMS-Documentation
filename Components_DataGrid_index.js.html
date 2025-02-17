@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Components/DataGrid/index.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">ITAD Web App Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Components</h2><h3>Modules / Form</h3><ul><li><a href="module-Autocomplete.html">Autocomplete</a></li><li><a href="module-TextArea.html">TextArea</a></li></ul><h3>Modules / Data Grid</h3><ul><li><a href="module-CheckboxCell.html">CheckboxCell</a></li><li><a href="module-DataGrid.html">DataGrid</a></li><li><a href="module-Footer.html">Footer</a></li><li><a href="module-SearchBar.html">SearchBar</a></li><li><a href="module-StatusCell.html">StatusCell</a></li></ul><h3>Modules / Buttons</h3><ul><li><a href="module-IconButtons.html">IconButtons</a></li><li><a href="module-PaginationButton.html">PaginationButton</a></li><li><a href="module-ReportDropdown.html">ReportDropdown</a></li><li><a href="module-SegmentedControl.html">SegmentedControl</a></li></ul></div><div class="category"><h2>Contexts</h2><h3>Modules</h3><ul><li><a href="module-AuthContext.html">AuthContext</a></li></ul></div><div class="category"><h2>Hooks</h2><h3>Modules</h3><ul><li><a href="module-useFetchData.html">useFetchData</a></li><li><a href="module-useHandleRequest.html">useHandleRequest</a></li><li><a href="module-useLocalStorage.html">useLocalStorage</a></li><li><a href="module-useModalManager.html">useModalManager</a></li><li><a href="module-useSelectRow.html">useSelectRow</a></li><li><a href="module-useSuppliers.html">useSuppliers</a></li></ul></div><div class="category"><h2>Utility</h2><h3>Modules</h3><ul><li><a href="module-formatDate.html">formatDate</a></li><li><a href="module-getHeightInPixels.html">getHeightInPixels</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Components/DataGrid/index.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { themeQuartz } from "ag-grid-community"
+// eslint-disable-next-line no-unused-vars
+import { ColDef } from 'ag-grid-community'
+import { AgGridReact } from "ag-grid-react"
+
+import logoO from 'Assets/logoo.png'
+
+import styles from './DataGrid.module.css'
+import Footer from "./Footer"
+
+/**
+ * Data Grid that replaced CustomDataGrid based on MUI's DataGrid. Unfortunately, as nice as MUI is, its DataGrid
+ * does not have native (and free) Virtualization, Pagination, and Sorting. With larger databases, as ITAD will most
+ * likely grow, all three of these are important for a dynamic and fast website. Therefore, this new Data Grid
+ * supports all three quite well. It has the following features:
+ * - Abstracts away some default properties
+ * - Height is easily-settable and the grid, plus footer, will take up the whole height
+ * - Adds a footer with pagination and searching, currently will always exist, but will add a flag to disable footer later
+ * - Width resizes to fit the columns passed in
+ * 
+ * @param {object} props 
+ * @param {object[]} props.rows Rows for the data grid
+ * @param {ColDef[]} props.columns AG-Grid columns
+ * @param {number} props.totalRows The total number of rows overall, normally gotten from an endpoint
+ * @param {function} props.getRowId Function to get a unique identifier for the row, defaults to the row's ID field
+ * @param {string} props.height CSS-formatted height, the grid and footer will fit to this value
+ * @param {DataGridControls} props.controls Grid Controls from useDataGridControls
+ * @param {boolean} props.loading `true` if the `rows` data is loading, `false` otherwise
+ * @param {function} props.handleSelectRow Function to handle row selection, normally from useRowSelection
+ * @param {boolean} props.hideFooter `true` if the footer should be hidden, `false` otherwise
+ * @param {boolean} props.disableControls `true` if pagination/sorting should be disabled, `false` otherwise
+ * @param {boolean} props.animateRows `true` if rows should animate sorting, `false` otherwise
+ * 
+ * @component
+ * 
+ * @category Components
+ * @subcategory Data Grid
+ * @module DataGrid 
+ */
+const DataGrid = ({
+    rows,
+    columns,
+    defaultColDef,
+    totalRows,
+    getRowId = (params) => `${params.data.id}`,
+    height = "70vh",
+    controls,
+    loading,
+    handleSelectRow,
+    hideFooter,
+    disableControls,
+    animateRows = false
+}) => {
+
+    const { paginationModel, setPaginationModel, setSortModel, searchValue, setSearchValue } = controls ?? {}
+
+    const myTheme = themeQuartz.withParams({
+        borderColor: "var(--border-color)",
+        rowBorder: { style: "solid", width: 1 },
+        columnBorder: { style: "solid", width: 1 },
+    })
+
+    const handleSortChange = (e) => {
+        const { columns } = e
+        const { colId, sort } = columns[columns.length - 1]
+        if (sort == null) {
+            setSortModel({
+                sortField: null,
+                sortDirection: null,
+            })
+            return
+        }
+        setSortModel({
+            sortField: colId,
+            sortDirection: sort
+        })
+    }
+
+    return (
+        &lt;div style={{ height, position: "relative" }} className="data-grid">
+            {
+                loading &amp;&amp;
+                &lt;div className={styles.loadingOverlay}>
+                    &lt;img src={logoO} alt="" />
+                &lt;/div>
+            }
+            &lt;div style={{ height: hideFooter ? "100%" : `calc(${height} - 50px)` }}>
+                &lt;AgGridReact
+                    rowData={rows}
+                    columnDefs={columns}
+                    theme={myTheme}
+                    getRowId={getRowId}
+                    loading={false} // forces no loading overlay so the custom one can be shown
+                    rowSelection={{
+                        mode: "singleRow",
+                        enableClickSelection: true,
+                        checkboxes: false
+                    }}
+                    onRowSelected={handleSelectRow}
+                    onRowDataUpdated={handleSelectRow}
+                    onSortChanged={!disableControls &amp;&amp; handleSortChange}
+                    animateRows={animateRows}
+                    defaultColDef={{
+                        cellClass: (params) => params.value == null &amp;&amp; "null-cell",
+                        valueFormatter: (params) => params.value != null ? params.value : "N/A",
+                        ...defaultColDef
+                    }}
+                    suppressPaginationPanel
+                />
+            &lt;/div>
+            {
+                !hideFooter &amp;&amp;
+                &lt;Footer
+                    paginationModel={paginationModel}
+                    setPaginationModel={setPaginationModel}
+                    totalPages={Math.ceil(totalRows / paginationModel.pageSize)}
+                    searchValue={searchValue}
+                    setSearchValue={setSearchValue}
+                />
+            }
+        &lt;/div>
+    )
+}
+
+export default DataGrid</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

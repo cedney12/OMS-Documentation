@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Components/DataGrid/Footer.jsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">ITAD Web App Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Components</h2><h3>Modules / Form</h3><ul><li><a href="module-Autocomplete.html">Autocomplete</a></li><li><a href="module-TextArea.html">TextArea</a></li></ul><h3>Modules / Data Grid</h3><ul><li><a href="module-CheckboxCell.html">CheckboxCell</a></li><li><a href="module-DataGrid.html">DataGrid</a></li><li><a href="module-Footer.html">Footer</a></li><li><a href="module-SearchBar.html">SearchBar</a></li><li><a href="module-StatusCell.html">StatusCell</a></li></ul><h3>Modules / Buttons</h3><ul><li><a href="module-IconButtons.html">IconButtons</a></li><li><a href="module-PaginationButton.html">PaginationButton</a></li><li><a href="module-ReportDropdown.html">ReportDropdown</a></li><li><a href="module-SegmentedControl.html">SegmentedControl</a></li></ul></div><div class="category"><h2>Contexts</h2><h3>Modules</h3><ul><li><a href="module-AuthContext.html">AuthContext</a></li></ul></div><div class="category"><h2>Hooks</h2><h3>Modules</h3><ul><li><a href="module-useFetchData.html">useFetchData</a></li><li><a href="module-useHandleRequest.html">useHandleRequest</a></li><li><a href="module-useLocalStorage.html">useLocalStorage</a></li><li><a href="module-useModalManager.html">useModalManager</a></li><li><a href="module-useSelectRow.html">useSelectRow</a></li><li><a href="module-useSuppliers.html">useSuppliers</a></li></ul></div><div class="category"><h2>Utility</h2><h3>Modules</h3><ul><li><a href="module-formatDate.html">formatDate</a></li><li><a href="module-getHeightInPixels.html">getHeightInPixels</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Components/DataGrid/Footer.jsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { enqueueSnackbar } from 'notistack'
+import { useEffect, useState } from 'react'
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight, MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight } from 'react-icons/md'
+
+import PaginationButton from 'Components/Buttons/PaginationButton'
+
+import styles from './DataGrid.module.css'
+import SearchBar from './SearchBar'
+
+/**
+ * Custom Data Grid footer, includes the following features:
+ * - Pagination: Updates the pagination model, triggering a refetch of the API data
+ * - Search: Updates the search value, triggering a refetch of the API data 
+ * 
+ * @param {object} props
+ * @param {PaginationModel} props.paginationModel State of the pagination model
+ * @param {React.SetStateAction&lt;React.Dispatch&lt;PaginationModel>>} props.setPaginationModel Function to update the pagination model
+ * @param {number} props.totalPages Maximum number of pages for the given data grid. Necessary for user input regulation
+ * @param {string} props.searchValue State of the search value
+ * @param {React.SetStateAction&lt;React.Dispatch&lt;string>>} props.setSearchValue Function to update the search value
+ * @component
+ * 
+ * @category Components
+ * @subcategory Data Grid
+ * @module Footer 
+ */
+const Footer = ({
+    paginationModel,
+    setPaginationModel,
+    totalPages,
+    searchValue,
+    setSearchValue
+}) => {
+    const [pageInput, setPageInput] = useState(paginationModel.page + 1)
+
+    useEffect(() => {
+        setPageInput(paginationModel.page + 1)
+    }, [paginationModel])
+
+    const goToPage = (newPage) => {
+        if (newPage &lt; 0 || newPage >= totalPages) {
+            enqueueSnackbar("Page does not exist")
+            return false
+        }
+        setPaginationModel(prev => ({ ...prev, page: newPage }))
+        return true
+    }
+
+    const handleSelection = (e) => {
+        setPaginationModel(prev => ({ ...prev, pageSize: e.target.value }))
+    }
+
+    const handleKeyDown = (e) => {
+        let newPageNumber = `${pageInput}`
+        if (e.key >= 0 &amp;&amp; e.key &lt;= 9) {
+            newPageNumber += e.key
+        }
+        if (e.key === "Backspace") {
+            newPageNumber = newPageNumber.slice(0, newPageNumber.length - 1)
+        }
+        if (e.key === "Enter") {
+            if (goToPage(Number(newPageNumber) - 1)) {
+                setPageInput(newPageNumber)
+            }
+        }
+        setPageInput(newPageNumber)
+    }
+
+    return (
+        &lt;div className={`${styles.pagination} footer`}>
+            {
+                (searchValue != null &amp;&amp; setSearchValue != null) &amp;&amp;
+                &lt;SearchBar
+                    searchValue={searchValue}
+                    setSearchValue={setSearchValue}
+                />
+            }
+            &lt;div>
+                &lt;p>Page Size:&lt;/p>
+                &lt;select
+                    value={paginationModel.pageSize}
+                    onChange={handleSelection}
+                >
+                    &lt;option value={10}>10&lt;/option>
+                    &lt;option value={25}>25&lt;/option>
+                    &lt;option value={50}>50&lt;/option>
+                &lt;/select>
+            &lt;/div>
+            &lt;div className={styles.divider}>&lt;/div>
+            &lt;div className={styles.pages}>
+                &lt;PaginationButton
+                    icon={&lt;MdKeyboardDoubleArrowLeft />}
+                    onClick={() => goToPage(0)}
+                    disabled={paginationModel.page &lt;= 0}
+                />
+                &lt;PaginationButton
+                    icon={&lt;MdKeyboardArrowLeft />}
+                    onClick={() => goToPage(paginationModel.page - 1)}
+                    disabled={paginationModel.page &lt;= 0}
+                />
+                &lt;p>
+                    Page
+                    &lt;input
+                        value={Number(pageInput)}
+                        onKeyDown={handleKeyDown}
+                        onChange={() => { }}
+                        type="number"
+                        min={1}
+                        max={isNaN(totalPages) ? 1 : totalPages}
+                    />
+                    of
+                    &lt;span className="total-pages">{isNaN(totalPages) ? "..." : totalPages}&lt;/span>
+                &lt;/p>
+                &lt;PaginationButton
+                    icon={&lt;MdKeyboardArrowRight />}
+                    onClick={() => goToPage(paginationModel.page + 1)}
+                    disabled={paginationModel.page >= totalPages - 1}
+                />
+                &lt;PaginationButton
+                    icon={&lt;MdKeyboardDoubleArrowRight />}
+                    onClick={() => goToPage(totalPages - 1)}
+                    disabled={paginationModel.page >= totalPages - 1}
+                />
+            &lt;/div>
+        &lt;/div>
+    )
+}
+
+export default Footer</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>
