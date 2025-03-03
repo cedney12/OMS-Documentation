@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Components/Reports/ReportDataWrapper.jsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">OMS Web App Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3><a href="global.html">Global</a></h3></div><div class="category"><h2>Components</h2><h3>Modules / Form</h3><ul><li><a href="module-Autocomplete.html">Autocomplete</a></li><li><a href="module-PhoneField.html">PhoneField</a></li><li><a href="module-PriceField.html">PriceField</a></li><li><a href="module-ReportInputField.html">ReportInputField</a></li><li><a href="module-TextArea.html">TextArea</a></li></ul><h3>Modules / Reports</h3><ul><li><a href="module-BillOfLading.html">BillOfLading</a></li><li><a href="module-RateConfirmation.html">RateConfirmation</a></li><li><a href="module-ReportDataWrapper.html">ReportDataWrapper</a></li></ul><h3>Modules / Modals</h3><ul><li><a href="module-CarrierModal.html">CarrierModal</a></li><li><a href="module-ModalWrapper.html">ModalWrapper</a></li><li><a href="module-POModal.html">POModal</a></li><li><a href="module-ReportInputModal.html">ReportInputModal</a></li></ul><h3>Modules / Data Grid</h3><ul><li><a href="module-CheckboxCell.html">CheckboxCell</a></li><li><a href="module-DataGrid.html">DataGrid</a></li><li><a href="module-Footer.html">Footer</a></li><li><a href="module-SearchBar.html">SearchBar</a></li><li><a href="module-StatusCell.html">StatusCell</a></li></ul><h3>Modules / Buttons</h3><ul><li><a href="module-IconButtons.html">IconButtons</a></li><li><a href="module-PaginationButton.html">PaginationButton</a></li><li><a href="module-ReportDropdown.html">ReportDropdown</a></li><li><a href="module-SegmentedControl.html">SegmentedControl</a></li></ul><h3>Modules / Template</h3><ul><li><a href="module-PageToolbar.html">PageToolbar</a></li></ul></div><div class="category"><h2>Contexts</h2><h3>Modules</h3><ul><li><a href="module-AuthContext.html">AuthContext</a></li><li><a href="module-LoadingContext.html">LoadingContext</a></li></ul></div><div class="category"><h2>Data</h2><h3>Modules</h3><ul><li><a href="module-getFacilityData.html">getFacilityData</a></li></ul></div><div class="category"><h2>Hooks</h2><h3>Modules</h3><ul><li><a href="module-useAPIMutation.html">useAPIMutation</a></li><li><a href="module-useCarriers.html">useCarriers</a></li><li><a href="module-useColumns.html">useColumns</a></li><li><a href="module-useEditableHandler.html">useEditableHandler</a></li><li><a href="module-useLoading.html">useLoading</a></li><li><a href="module-useLocalStorage.html">useLocalStorage</a></li><li><a href="module-useModalManager.html">useModalManager</a></li><li><a href="module-useOrders.html">useOrders</a></li><li><a href="module-useQueryData.html">useQueryData</a></li><li><a href="module-useSelectRow.html">useSelectRow</a></li><li><a href="module-useSuppliers.html">useSuppliers</a></li><li><a href="module-useTraders.html">useTraders</a></li></ul></div><div class="category"><h2>Utility</h2><h3>Modules</h3><ul><li><a href="module-areAnyEmpty.html">areAnyEmpty</a></li><li><a href="module-areAnyconvertFormDataEmpty.html">areAnyconvertFormDataEmpty</a></li><li><a href="module-formatDate.html">formatDate</a></li><li><a href="module-formatPrice.html">formatPrice</a></li><li><a href="module-getContrastingTextColor.html">getContrastingTextColor</a></li><li><a href="module-getHeightInPixels.html">getHeightInPixels</a></li><li><a href="module-getInitials.html">getInitials</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Components/Reports/ReportDataWrapper.jsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Document, PDFViewer } from "@react-pdf/renderer"
+import { find, isEmpty } from "lodash"
+import { useEffect, useState } from "react"
+
+import { useAuth } from "Contexts/AuthContext"
+import { useLoading } from "Contexts/LoadingContext"
+import { endpoints } from "Data/api_data"
+import { getFacilityData } from "Data/facility_data"
+import useQueryData from "Hooks/useQueryData"
+import { areAnyEmpty } from "Utils/functions"
+
+import BillOfLading from "./BillOfLading"
+import RateConfirmation from "./RateConfirmation"
+
+/**
+ * Wrapper to send data to the correct reports
+ * 
+ * This was created to separate the PDF creation and the data fetching processes.
+ * When a component is inside of react-pdf/renderer's `PDFViewer`, no contexts can be accessed.
+ * Thus, useQuery, useAuth, and useLoading are unavailable, which are used for data fetching.
+ * This component is used to get around that, as well as make it easier for combined reports.
+ * 
+ * @param {object} props
+ * 
+ * @category Components
+ * @subcategory Reports
+ * @module ReportDataWrapper
+ * @component
+ */
+const ReportDataWrapper = ({
+    reportLabel,
+    orderID,
+    updateInstance,
+    inputs
+}) => {
+    const { user } = useAuth()
+    const { startLoading, stopLoading } = useLoading()
+    const { data: order, isFetched: isOrderFetched, error: orderError } = useQueryData(endpoints.orders.getByID(orderID))
+    const { data: supplier, isFetched: isSupplierFetched, error: supplierError, setUrl: setSupplierUrl } = useQueryData()
+    const { data: carrier, isFetched: isCarrierFetched, error: carrierError, setUrl: setCarrierUrl } = useQueryData()
+    const { data: contacts, isFetched: isContactsFetched, error: contactsError, setUrl: setContactsUrl } = useQueryData()
+
+    const [facility, setFacility] = useState()
+    const [doc, setDoc] = useState()
+    const [error, setError] = useState()
+
+    useEffect(startLoading, [])
+
+    useEffect(() => {
+        if (isEmpty(order)) return
+
+        setSupplierUrl(endpoints.suppliers.getSupplierByName(order.supplier))
+        setCarrierUrl(endpoints.carriers.getByName(order.carrier))
+        setContactsUrl(endpoints.contacts.getSupplierContactsByName(order.supplier))
+        setFacility(getFacilityData(order))
+    }, [order])
+
+    useEffect(() => {
+        const error = [
+            orderError,
+            supplierError,
+            carrierError,
+            contactsError
+        ].find(error => error)
+
+        if (error) {
+            setError(`Error loading PDF: ${error.message}`)
+            stopLoading()
+        }
+    }, [orderError, supplierError, carrierError, contactsError])
+
+    useEffect(() => {
+        const emptyFetch = [
+            [isOrderFetched, order, "order"],
+            [isSupplierFetched, supplier, "supplier"],
+            [isCarrierFetched, carrier, "carrier"],
+            [isContactsFetched, contacts, "contacts"]
+        ].find(([isFetched, data]) => isFetched &amp;&amp; isEmpty(data))
+
+        if (emptyFetch) {
+            setError(`Error loading PDF: No data for ${emptyFetch[2]}`)
+            stopLoading()
+        }
+    }, [isOrderFetched, isSupplierFetched, isCarrierFetched, isContactsFetched])
+
+    useEffect(() => {
+        startLoading()
+        let pages = null
+
+        if (error) {
+            stopLoading()
+            return
+        }
+
+        if (areAnyEmpty(order, supplier, carrier, contacts)) return
+
+        switch (reportLabel) {
+            case "Bill Of Lading":
+                pages = (
+                    &lt;BillOfLading
+                        order={order}
+                        supplier={supplier}
+                        carrier={carrier}
+                        facility={facility}
+                        inputs={inputs}
+                    />
+                )
+                break
+            case "Rate Confirmation":
+                pages = (
+                    &lt;RateConfirmation
+                        order={order}
+                        supplier={supplier}
+                        carrier={carrier}
+                        contact={find(contacts, (c) => c.id === supplier.primary_contact_id) ?? contacts[0]}
+                        facility={facility}
+                        user={user}
+                        inputs={inputs}
+                    />
+                )
+                break
+            case "Bill &amp; Confirmation":
+                pages = (
+                    &lt;>
+                        &lt;BillOfLading
+                            order={order}
+                            supplier={supplier}
+                            carrier={carrier}
+                            facility={facility}
+                            inputs={inputs}
+                        />
+                        &lt;RateConfirmation
+                            order={order}
+                            supplier={supplier}
+                            carrier={carrier}
+                            contact={find(contacts, (c) => c.id === supplier.primary_contact_id) ?? contacts[0]}
+                            facility={facility}
+                            user={user}
+                            inputs={inputs}
+                        />
+                    &lt;/>
+                )
+                break
+        }
+
+        setDoc(&lt;Document>{pages}&lt;/Document>)
+        updateInstance(&lt;Document>{pages}&lt;/Document>)
+    }, [reportLabel, order, supplier, carrier, contacts, error])
+
+    return (
+        error
+            ? &lt;h1>{error}&lt;/h1>
+            : doc
+                ? &lt;PDFViewer width="100%" height="100%" onLoad={stopLoading}>{doc}&lt;/PDFViewer>
+                : &lt;>&lt;/>
+    )
+}
+
+export default ReportDataWrapper</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

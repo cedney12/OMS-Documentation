@@ -72,7 +72,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Components</h2><h3>Modules / Form</h3><ul><li><a href="module-Autocomplete.html">Autocomplete</a></li><li><a href="module-TextArea.html">TextArea</a></li></ul><h3>Modules / Data Grid</h3><ul><li><a href="module-CheckboxCell.html">CheckboxCell</a></li><li><a href="module-DataGrid.html">DataGrid</a></li><li><a href="module-Footer.html">Footer</a></li><li><a href="module-SearchBar.html">SearchBar</a></li><li><a href="module-StatusCell.html">StatusCell</a></li></ul><h3>Modules / Buttons</h3><ul><li><a href="module-IconButtons.html">IconButtons</a></li><li><a href="module-PaginationButton.html">PaginationButton</a></li><li><a href="module-ReportDropdown.html">ReportDropdown</a></li><li><a href="module-SegmentedControl.html">SegmentedControl</a></li></ul></div><div class="category"><h2>Contexts</h2><h3>Modules</h3><ul><li><a href="module-AuthContext.html">AuthContext</a></li></ul></div><div class="category"><h2>Hooks</h2><h3>Modules</h3><ul><li><a href="module-useFetchData.html">useFetchData</a></li><li><a href="module-useHandleRequest.html">useHandleRequest</a></li><li><a href="module-useLocalStorage.html">useLocalStorage</a></li><li><a href="module-useModalManager.html">useModalManager</a></li><li><a href="module-useSelectRow.html">useSelectRow</a></li><li><a href="module-useSuppliers.html">useSuppliers</a></li></ul></div><div class="category"><h2>Utility</h2><h3>Modules</h3><ul><li><a href="module-formatDate.html">formatDate</a></li><li><a href="module-getHeightInPixels.html">getHeightInPixels</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3><a href="global.html">Global</a></h3></div><div class="category"><h2>Components</h2><h3>Modules / Form</h3><ul><li><a href="module-Autocomplete.html">Autocomplete</a></li><li><a href="module-PhoneField.html">PhoneField</a></li><li><a href="module-PriceField.html">PriceField</a></li><li><a href="module-ReportInputField.html">ReportInputField</a></li><li><a href="module-TextArea.html">TextArea</a></li></ul><h3>Modules / Reports</h3><ul><li><a href="module-BillOfLading.html">BillOfLading</a></li><li><a href="module-RateConfirmation.html">RateConfirmation</a></li><li><a href="module-ReportDataWrapper.html">ReportDataWrapper</a></li></ul><h3>Modules / Modals</h3><ul><li><a href="module-CarrierModal.html">CarrierModal</a></li><li><a href="module-ModalWrapper.html">ModalWrapper</a></li><li><a href="module-POModal.html">POModal</a></li><li><a href="module-ReportInputModal.html">ReportInputModal</a></li></ul><h3>Modules / Data Grid</h3><ul><li><a href="module-CheckboxCell.html">CheckboxCell</a></li><li><a href="module-DataGrid.html">DataGrid</a></li><li><a href="module-Footer.html">Footer</a></li><li><a href="module-SearchBar.html">SearchBar</a></li><li><a href="module-StatusCell.html">StatusCell</a></li></ul><h3>Modules / Buttons</h3><ul><li><a href="module-IconButtons.html">IconButtons</a></li><li><a href="module-PaginationButton.html">PaginationButton</a></li><li><a href="module-ReportDropdown.html">ReportDropdown</a></li><li><a href="module-SegmentedControl.html">SegmentedControl</a></li></ul><h3>Modules / Template</h3><ul><li><a href="module-PageToolbar.html">PageToolbar</a></li></ul></div><div class="category"><h2>Contexts</h2><h3>Modules</h3><ul><li><a href="module-AuthContext.html">AuthContext</a></li><li><a href="module-LoadingContext.html">LoadingContext</a></li></ul></div><div class="category"><h2>Data</h2><h3>Modules</h3><ul><li><a href="module-getFacilityData.html">getFacilityData</a></li></ul></div><div class="category"><h2>Hooks</h2><h3>Modules</h3><ul><li><a href="module-useAPIMutation.html">useAPIMutation</a></li><li><a href="module-useCarriers.html">useCarriers</a></li><li><a href="module-useColumns.html">useColumns</a></li><li><a href="module-useEditableHandler.html">useEditableHandler</a></li><li><a href="module-useLoading.html">useLoading</a></li><li><a href="module-useLocalStorage.html">useLocalStorage</a></li><li><a href="module-useModalManager.html">useModalManager</a></li><li><a href="module-useOrders.html">useOrders</a></li><li><a href="module-useQueryData.html">useQueryData</a></li><li><a href="module-useSelectRow.html">useSelectRow</a></li><li><a href="module-useSuppliers.html">useSuppliers</a></li><li><a href="module-useTraders.html">useTraders</a></li></ul></div><div class="category"><h2>Utility</h2><h3>Modules</h3><ul><li><a href="module-areAnyEmpty.html">areAnyEmpty</a></li><li><a href="module-areAnyconvertFormDataEmpty.html">areAnyconvertFormDataEmpty</a></li><li><a href="module-formatDate.html">formatDate</a></li><li><a href="module-formatPrice.html">formatPrice</a></li><li><a href="module-getContrastingTextColor.html">getContrastingTextColor</a></li><li><a href="module-getHeightInPixels.html">getHeightInPixels</a></li><li><a href="module-getInitials.html">getInitials</a></li></ul></div>
                 
             </nav>
         </div>
@@ -89,7 +89,19 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>export const getContrastingTextColor = (backgroundHex) => {
+            <pre class="prettyprint source linenums"><code>import { isEmpty, some } from "lodash"
+
+/**
+ * Gets the corresponding text color for a background color,
+ * either black or white, based on hue.
+ * 
+ * @param {string} backgroundHex 
+ * @returns {"black" | "white"}
+ * @category Utility
+ * @module Functions
+ * @name getContrastingTextColor
+ */
+export const getContrastingTextColor = (backgroundHex) => {
     const rgb = backgroundHex.replace("#", "")
         .match(/.{2}/g)
         .map(hex => parseInt(hex, 16))
@@ -98,6 +110,15 @@
     return luminance > 0.5 ? "black" : "white"
 }
 
+/**
+ * Gets the initials of a user from their name
+ * 
+ * @param {string} name 
+ * @returns {string}
+ * @category Utility
+ * @module Functions
+ * @name getInitials
+ */
 export const getInitials = (name) => name.split(" ").map(p => p.toUpperCase().charAt(0)).join("")
 
 /**
@@ -156,6 +177,64 @@ export const getHeightInPixels = (rawHeight, elementRef) => {
     if (/\d$/.test(rawHeight)) {
         return Number(rawHeight)
     }
+}
+
+/**
+ * Checks if any values passed in are empty
+ * 
+ * @param  {...any} args 
+ * @returns `true` if any values are empty, `false` otherwise
+ * @category Utility
+ * @module Functions
+ * @name areAnyEmpty
+ */
+export const areAnyEmpty = (...args) => {
+    return some(args, isEmpty) || some(args, (o) => !o)
+}
+
+/**
+ * Converts form data from string to the correct data type for API POST/PUT
+ * 
+ * Currently handles the following values:
+ * - Prices (with `$`)
+ * - Numbers
+ * - Dates (in the form `MM/DD/YY`)
+ * - Boolean values (`on, off, true, false`)
+ * 
+ * @param {any} value Input value
+ * @param {string} [key] Form name of the input data
+ * @category Utility
+ * @module Functions
+ * @name areAnyconvertFormDataEmpty
+ */
+export const convertFormData = (value, key) => {
+    // console.log(value, key, typeof value)
+    if (typeof value === "string") {
+        // Convert dollar amount to number
+        if (value.match(/\$\d+\.\d{2}/g)) {
+            const numberValue = value.replace("$", "")
+            return Number(numberValue)
+        }
+
+        // Convert to number
+        if (!isNaN(value) &amp;&amp; value.trim() !== "") {
+            return Number(value)
+        }
+
+        // Convert to YYYY-MM-DD
+        if (value.match(/\d{2}\/\d{2}\/\d{2}/g)) {
+            return new Date(value).toISOString().split("T")[0]
+        }
+
+        // Convert checkbox on/off to boolean
+        if (["on", "true"].includes(value)) {
+            return true
+        }
+        if (["off", "false"].includes(value)) {
+            return false
+        }
+    }
+    return value
 }</code></pre>
         </article>
     </section>

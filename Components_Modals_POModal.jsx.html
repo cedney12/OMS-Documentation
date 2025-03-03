@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Components/Modals/POModal.jsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">OMS Web App Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3><a href="global.html">Global</a></h3></div><div class="category"><h2>Components</h2><h3>Modules / Form</h3><ul><li><a href="module-Autocomplete.html">Autocomplete</a></li><li><a href="module-PhoneField.html">PhoneField</a></li><li><a href="module-PriceField.html">PriceField</a></li><li><a href="module-ReportInputField.html">ReportInputField</a></li><li><a href="module-TextArea.html">TextArea</a></li></ul><h3>Modules / Reports</h3><ul><li><a href="module-BillOfLading.html">BillOfLading</a></li><li><a href="module-RateConfirmation.html">RateConfirmation</a></li><li><a href="module-ReportDataWrapper.html">ReportDataWrapper</a></li></ul><h3>Modules / Modals</h3><ul><li><a href="module-CarrierModal.html">CarrierModal</a></li><li><a href="module-ModalWrapper.html">ModalWrapper</a></li><li><a href="module-POModal.html">POModal</a></li><li><a href="module-ReportInputModal.html">ReportInputModal</a></li></ul><h3>Modules / Data Grid</h3><ul><li><a href="module-CheckboxCell.html">CheckboxCell</a></li><li><a href="module-DataGrid.html">DataGrid</a></li><li><a href="module-Footer.html">Footer</a></li><li><a href="module-SearchBar.html">SearchBar</a></li><li><a href="module-StatusCell.html">StatusCell</a></li></ul><h3>Modules / Buttons</h3><ul><li><a href="module-IconButtons.html">IconButtons</a></li><li><a href="module-PaginationButton.html">PaginationButton</a></li><li><a href="module-ReportDropdown.html">ReportDropdown</a></li><li><a href="module-SegmentedControl.html">SegmentedControl</a></li></ul><h3>Modules / Template</h3><ul><li><a href="module-PageToolbar.html">PageToolbar</a></li></ul></div><div class="category"><h2>Contexts</h2><h3>Modules</h3><ul><li><a href="module-AuthContext.html">AuthContext</a></li><li><a href="module-LoadingContext.html">LoadingContext</a></li></ul></div><div class="category"><h2>Data</h2><h3>Modules</h3><ul><li><a href="module-getFacilityData.html">getFacilityData</a></li></ul></div><div class="category"><h2>Hooks</h2><h3>Modules</h3><ul><li><a href="module-useAPIMutation.html">useAPIMutation</a></li><li><a href="module-useCarriers.html">useCarriers</a></li><li><a href="module-useColumns.html">useColumns</a></li><li><a href="module-useEditableHandler.html">useEditableHandler</a></li><li><a href="module-useLoading.html">useLoading</a></li><li><a href="module-useLocalStorage.html">useLocalStorage</a></li><li><a href="module-useModalManager.html">useModalManager</a></li><li><a href="module-useOrders.html">useOrders</a></li><li><a href="module-useQueryData.html">useQueryData</a></li><li><a href="module-useSelectRow.html">useSelectRow</a></li><li><a href="module-useSuppliers.html">useSuppliers</a></li><li><a href="module-useTraders.html">useTraders</a></li></ul></div><div class="category"><h2>Utility</h2><h3>Modules</h3><ul><li><a href="module-areAnyEmpty.html">areAnyEmpty</a></li><li><a href="module-areAnyconvertFormDataEmpty.html">areAnyconvertFormDataEmpty</a></li><li><a href="module-formatDate.html">formatDate</a></li><li><a href="module-formatPrice.html">formatPrice</a></li><li><a href="module-getContrastingTextColor.html">getContrastingTextColor</a></li><li><a href="module-getHeightInPixels.html">getHeightInPixels</a></li><li><a href="module-getInitials.html">getInitials</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Components/Modals/POModal.jsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useMsal } from "@azure/msal-react"
+import { Button, capitalize, Checkbox, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from "@mui/material"
+import { DatePicker } from "@mui/x-date-pickers"
+import dayjs from "dayjs"
+import { isEmpty, mapValues } from "lodash"
+import { enqueueSnackbar } from "notistack"
+import { useState } from "react"
+
+import Autocomplete from "Components/Form/Autocomplete"
+import PriceField from "Components/Form/PriceField"
+import TextArea from "Components/Form/TextArea"
+import { endpoints } from "Data/api_data"
+import { commodities, facilities, redCommodities, statuses, truckTypes } from "Data/order_data"
+import useCarriers from "Hooks/useCarriers"
+import useAPIMutation from "Hooks/useAPIMutation"
+import useSuppliers from "Hooks/useSuppliers"
+import useTraders from "Hooks/useTraders"
+import { convertFormData, getInitials } from "Utils/functions"
+
+import styles from './Modals.module.css'
+import ModalWrapper from "./ModalWrapper"
+
+/**
+ * Modal to allow for the creation and editing of Orders
+ * 
+ * @param {object} props
+ * @param {boolean} props.open `true` if the modal is open, `false` otherwise
+ * @param {function} props.onClose Function that occurs when the modal closes
+ * @param {"create" | "edit"} props.type Type of modal open, either creating or editing
+ * @param {Order} [props.order] Order to edit, if editing
+ * @param {React.Dispatch&lt;React.SetStateAction&lt;number>>} props.setUpdatedRowId Function to set the row most recently updated 
+ * @param {function} props.reloadData Function to reload API data on POST/PUT
+ * 
+ * @category Components
+ * @subcategory Modals
+ * @module POModal
+ * @component
+ */
+const POModal = ({
+    open,
+    onClose,
+    type,
+    order = {},
+    setUpdatedRowId,
+    onSuccess
+}) => {
+    const { accounts } = useMsal()
+    const { mutate, mutateAsync } = useAPIMutation(
+        (data) => {
+            type === "create" &amp;&amp; onSuccess()
+            setUpdatedRowId(data.id)
+            enqueueSnackbar("Successfully created order", { variant: "success" })
+            onClose()
+        },
+        () => enqueueSnackbar("Unable to create order", { variant: "error" }),
+    )
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        if (hazmat == null) {
+            enqueueSnackbar("You MUST declare if the load contains batteries or hazardous materials", { variant: "error" })
+            return
+        }
+
+        let suffix = ""
+        if (type === "create") {
+            const previousOrders = await mutateAsync({
+                url: endpoints.orders.getPage(0, 1, null, null, e.target.po_num.value, "id", "desc"),
+                method: "GET"
+            })
+            if (!isEmpty(previousOrders)) {
+                const lastLoad = previousOrders[0]
+                const suffixIndex = lastLoad.po_num.search(/-\d+/g)
+                if (suffixIndex === -1) {
+                    await handleRequest(
+                        endpoints.orders.putOne(lastLoad.id),
+                        "PUT",
+                        {
+                            ...lastLoad,
+                            po_num: lastLoad.po_num + "-1"
+                        }
+                    )
+                    suffix = "-2"
+                }
+                else {
+                    const lastLoadSuffix = Number(lastLoad.po_num.substring(suffixIndex + 1))
+                    if (lastLoadSuffix) suffix = `-${lastLoadSuffix + 1}`
+                }
+                if (!window.confirm(`Purchase Order with number ${e.target.po_num.value} already exists, create another load with PO # ${e.target.po_num.value}${suffix}`)) return
+            }
+        }
+
+        const data = mapValues({
+            ...order,
+            ...Object.fromEntries(new FormData(e.target)),
+            has_hazmat: hazmat === "Yes",
+        }, convertFormData)
+        data.po_num = data.po_num + suffix
+        data.status_initials = ["Booked", "Scheduled"].includes(data.status) ? getInitials(accounts[0].name) : null
+        data.pick_up_date = cd || !data.pick_up_date ? null : data.pick_up_date
+        data.delivery_date = !data.delivery_date ? null : data.delivery_date
+        data.carrier = cd ? null : data.carrier
+        data.equipment = cd ? null : data.equipment
+        data.rate = cd ? null : data.rate
+        data.pickup_location = cd ? null : data.pickup_location
+        data.hours = cd ? null : data.hours
+
+        const url = type === "create"
+            ? endpoints.orders.post
+            : endpoints.orders.putOne(order.id)
+        const method = type === "create" ? "POST" : "PUT"
+
+        mutate({ url, method, data })
+    }
+
+    const [cd, setCD] = useState(order.customer_delivery)
+    const [hazmat, setHazmat] = useState(order.has_hazmat != null ? order.has_hazmat ? "Yes" : "No" : null)
+
+    const { traders } = useTraders()
+    const { suppliers } = useSuppliers()
+    const { carriers } = useCarriers()
+
+    return (
+        &lt;ModalWrapper
+            open={open}
+            onClose={onClose}
+            sx={{ width: "825px" }}
+        >
+            &lt;h1>{capitalize(type)} a Purchase Order&lt;/h1>
+            &lt;form onSubmit={handleSubmit}>
+                &lt;div className={styles.poCards}>
+                    &lt;div className={styles.formCard}>
+                        &lt;h2>Order Info&lt;/h2>
+                        &lt;div className={styles.formRow}>
+                            &lt;TextField
+                                label="PO #"
+                                name="po_num"
+                                defaultValue={order.po_num}
+                                sx={{ width: "25%" }}
+                                required
+                            />
+                            &lt;Autocomplete
+                                width="75%"
+                                options={traders}
+                                label="Trader"
+                                name="trader"
+                                defaultValue={order.trader}
+                                required
+                            />
+                        &lt;/div>
+                        &lt;div className={styles.formRow}>
+                            &lt;Autocomplete
+                                width="50%"
+                                options={facilities}
+                                label="Facility"
+                                name="facility"
+                                defaultValue={order.facility}
+                                required
+                            />
+                            &lt;Autocomplete
+                                width="50%"
+                                options={statuses}
+                                label="Status"
+                                name="status"
+                                defaultValue={{ value: order.status } || ""}
+                                getOptionLabel={(option) => option.value || ""}
+                                isOptionEqualToValue={(option, value) => option.value === value.value}
+                                required
+                            />
+                        &lt;/div>
+                        &lt;Autocomplete
+                            width="381px"
+                            options={commodities}
+                            label="Commodity"
+                            name="commodity"
+                            defaultValue={order.commodity}
+                            renderOption={(props, option) => {
+                                const { key, ...optionProps } = props
+                                const color = redCommodities.includes(option) ? "#f60000" : "black"
+                                return (
+                                    &lt;li key={key} {...optionProps} style={{ color }}>
+                                        {option}
+                                    &lt;/li>
+                                )
+                            }}
+                            required
+                        />
+                        &lt;Autocomplete
+                            width="381px"
+                            label="Supplier"
+                            name="supplier"
+                            defaultValue={{ name: order.supplier } || ""}
+                            options={suppliers}
+                            getOptionLabel={(option) => option.name || ""}
+                            isOptionEqualToValue={(option, value) => option.name === value.name}
+                            required
+                        />
+                    &lt;/div>
+                    &lt;div className={styles.formCard}>
+                        &lt;div className={styles.formRow} style={{ justifyContent: "space-between" }}>
+                            &lt;h2>Carrier Info&lt;/h2>
+                            &lt;FormControlLabel
+                                control={
+                                    &lt;Checkbox
+                                        checked={cd ?? false}
+                                        onChange={(_, v) => setCD(v)}
+                                        sx={{ marginLeft: "4px", padding: 0 }}
+                                    />
+                                }
+                                label="Customer Delivery"
+                                labelPlacement="start"
+                                name="customer_delivery"
+                            />
+                        &lt;/div>
+                        &lt;Autocomplete
+                            width="350px"
+                            label="Carrier"
+                            name="carrier"
+                            defaultValue={{ name: order.carrier } || ""}
+                            options={carriers}
+                            getOptionLabel={(option) => option.name || ""}
+                            isOptionEqualToValue={(option, value) => option.name === value.name}
+                            disabled={cd}
+                            required
+                        />
+                        &lt;div className={styles.formRow}>
+                            &lt;Autocomplete
+                                width="50%"
+                                label="Equipment"
+                                name="equipment"
+                                defaultValue={order.equipment}
+                                options={truckTypes}
+                                disabled={cd}
+                                required
+                            />
+                            &lt;PriceField
+                                label="Rate"
+                                name="rate"
+                                defaultValue={order.rate}
+                                disabled={cd}
+                                width="50%"
+                                required
+                            />
+                        &lt;/div>
+                        &lt;TextField
+                            label="Pickup Location"
+                            name="pickup_location"
+                            defaultValue={order.pickup_location}
+                            required
+                            disabled={cd}
+                        />
+                        &lt;TextField
+                            label="Hours"
+                            name="hours"
+                            defaultValue={order.hours}
+                            disabled={cd}
+                        />
+                    &lt;/div>
+                    &lt;div className={styles.formCard}>
+                        &lt;h2>Order Details&lt;/h2>
+                        &lt;div className={styles.formRow}>
+                            &lt;DatePicker
+                                label="Date Issued"
+                                name="date_issued"
+                                defaultValue={dayjs(order.date_issued ?? new Date())}
+                            />
+                            &lt;DatePicker
+                                label="Pick Up Date"
+                                name="pick_up_date"
+                                defaultValue={
+                                    order.pick_up_date
+                                    &amp;&amp; dayjs(order.pick_up_date)
+                                }
+                                disabled={cd}
+                            />
+                            &lt;DatePicker
+                                label="Delivery Date"
+                                name="delivery_date"
+                                defaultValue={
+                                    order.delivery_date
+                                    &amp;&amp; dayjs(order.delivery_date)
+                                }
+                            />
+                            &lt;TextField
+                                sx={{ width: "281px" }}
+                                label="GPS Link"
+                                name="gps_link"
+                                defaultValue={order.gps_link}
+                            />
+                        &lt;/div>
+                        &lt;div className={styles.formRow} style={{ justifyContent: "space-between" }}>
+                            &lt;FormControlLabel
+                                control={
+                                    &lt;Checkbox
+                                        defaultChecked={order.bill_received}
+                                        sx={{ marginRight: "4px", padding: 0 }}
+                                    />
+                                }
+                                label="Bill of Lading"
+                                name="bill_received"
+                            />
+                            &lt;FormControl style={{ display: "flex", gap: "8px", flexDirection: "row", alignItems: "center" }}>
+                                &lt;p>&lt;b>Load contains batteries or hazardous materials?&lt;/b>&lt;/p>
+                                &lt;RadioGroup
+                                    row
+                                    sx={{ gap: "8px" }}
+                                    value={hazmat}
+                                    onChange={(_, value) => setHazmat(value)}
+                                >
+                                    &lt;FormControlLabel value="Yes" control={&lt;Radio />} label="Yes" />
+                                    &lt;FormControlLabel value="No" control={&lt;Radio />} label="No" />
+                                &lt;/RadioGroup>
+                            &lt;/FormControl>
+                        &lt;/div>
+                        &lt;TextArea
+                            label="Notes"
+                            name="notes"
+                            defaultValue={order.notes}
+                        />
+                    &lt;/div>
+                &lt;/div>
+                &lt;Button type="submit">{capitalize(type)}&lt;/Button>
+            &lt;/form>
+        &lt;/ModalWrapper>
+    )
+}
+
+export default POModal</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>
